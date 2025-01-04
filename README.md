@@ -139,4 +139,6 @@ This project is licensed under the **MIT License**. Check the `LICENSE` file for
 
 ---
 
-**Thank you for exploring the Library Management System API! Happy coding!**
+**Thank you for exploring the Library Management System API! 🙌**
+
+**Happy coding! 🎉**
