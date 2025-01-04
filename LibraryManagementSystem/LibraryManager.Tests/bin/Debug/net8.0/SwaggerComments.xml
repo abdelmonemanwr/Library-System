@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Library.Management.System.API</name>
+    </assembly>
+    <members>
+        <member name="M:Library.Management.System.API.Controllers.AccountController.Login(Library.Management.System.API.DTOs.LoginDTO)">
+            <summary>
+            User Login
+            </summary>
+            <param name="loginDTO">Login credentials (email and password).</param>
+            <returns>Returns an authentication token if successful or an error message if the login fails.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.AccountController.CheckExistingEmail(System.String)">
+            <summary>
+            Check if an email is already registered.
+            </summary>
+            <param name="email">The email to check.</param>
+            <returns>Returns true if the email already exists, otherwise false.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.AccountController.Register(Library.Management.System.API.DTOs.RegisterDTO)">
+            <summary>
+            User Registration
+            </summary>
+            <param name="registerDTO">Registration data including email, password, confirm password, and role.</param>
+            <returns>Returns a success message and user details if registration is successful, or an error message if validation fails.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.AccountController.Logout">
+            <summary>
+            User Logout
+            </summary>
+            <returns>Returns a success message indicating the user has been logged out.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.BooksController.AddBook(Library.Management.System.API.DTOs.BookDTO)">
+            <summary>
+            Adds a new book to the library.
+            Only accessible by Admin users.
+            </summary>
+            <param name="bookDTO">The book details to be added.</param>
+            <returns>Returns a success message and the added book's details.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.BooksController.UpdateBook(System.Int32,Library.Management.System.API.DTOs.BookUpdateDTO)">
+            <summary>
+            Updates an existing book's details.
+            Only accessible by Admin users.
+            </summary>
+            <param name="id">The ID of the book to update.</param>
+            <param name="bookDTO">The new details of the book to update.</param>
+            <returns>Returns a success message with the updated book details, or an error if validation fails.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.BooksController.DeleteBook(System.Int32)">
+            <summary>
+            Deletes a book from the library.
+            Only accessible by Admin users.
+            </summary>
+            <param name="id">The ID of the book to delete.</param>
+            <returns>Returns a success message if the book is deleted, or an error if the book is not found.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.BooksController.GetBooks(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Retrieves a list of books based on optional filters such as title, author, genre, pagination, and sorting.
+            </summary>
+            <param name="title">Optional filter for the book title.</param>
+            <param name="author">Optional filter for the author's name.</param>
+            <param name="genre">Optional filter for the genre of the book.</param>
+            <param name="page">The page number for pagination (default is 1).</param>
+            <param name="pageSize">The number of books per page (default is 5).</param>
+            <param name="sortBy">Optional field to sort the books by (e.g., "title", "author").</param>
+            <param name="sortOrder">Optional sorting order (asc for ascending, desc for descending; default is "asc").</param>
+            <returns>Returns a paginated and sorted list of books matching the search criteria.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.BorrowingController.BorrowBook(System.Int32)">
+            <summary>
+            Endpoint to borrow a book.
+            </summary>
+            <param name="bookId">ID of the book to borrow.</param>
+            <returns>Returns a success message if borrowing the book was done successfully</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.BorrowingController.GetBorrowedBooks">
+            <summary>
+            Endpoint to retrieve a list of books borrowed by the user who logged in.
+            </summary>
+            <returns>Returns a list of borrowed books with details like borrowed date, return date, user ID, and book ID.</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Controllers.BorrowingController.ReturnBook(System.Int32)">
+            <summary>
+            Endpoint to return a borrowed book.
+            </summary>
+            <param name="bookId">ID of the book to return.</param>
+            <returns>Returns a success message if the book was returned successfully.</returns>
+        </member>
+        <member name="T:Library.Management.System.API.Migrations.initial_migration">
+            <inheritdoc />
+        </member>
+        <member name="M:Library.Management.System.API.Migrations.initial_migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Library.Management.System.API.Migrations.initial_migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Library.Management.System.API.Migrations.initial_migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Library.Management.System.API.Migrations.v2">
+            <inheritdoc />
+        </member>
+        <member name="M:Library.Management.System.API.Migrations.v2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Library.Management.System.API.Migrations.v2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Library.Management.System.API.Migrations.v2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Library.Management.System.API.Repositories.GenericRepository`1.GetByIdAsync(System.Int32)">
+            <summary>
+            Get a specific entity by id
+            </summary>
+            <param name="id">Used to retrieve entity</param>
+            <returns>the matched entity</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Repositories.GenericRepository`1.GetAllAsync">
+            <summary>
+            Get all entities of type TEntity
+            </summary>
+            <returns>Retrieve all entities</returns>
+        </member>
+        <member name="M:Library.Management.System.API.Repositories.GenericRepository`1.Add(`0)">
+            <summary>
+            Add an entity to the database
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Library.Management.System.API.Repositories.GenericRepository`1.Update(`0)">
+            <summary>
+            Update an entity in the database
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Library.Management.System.API.Repositories.GenericRepository`1.Delete(`0)">
+            <summary>
+            Delete an entity from the database
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Library.Management.System.API.Repositories.GenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find entities that match the predicate
+            </summary>
+            <param name="predicate">  </param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Management.System.API.Repositories.GenericRepository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Find entities that match the predicate
+            </summary>
+            <param name="predicate">  </param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
